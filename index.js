@@ -28,9 +28,10 @@ async function getRecipes() {
 }
 
 
-function ini(){
+ async function ini(){
     const recipes = await getRecipes()
    displayRecipes(recipes)
+   console.log(recipes)
 }
 
 init()

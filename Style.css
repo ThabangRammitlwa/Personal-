@@ -1,6 +1,6 @@
 body{
-  background:#d7dbdd;
-  color:#fff ;
+  background:#f2f9c2;
+  color:#130d42 ;
   font-family:Verdana, Geneva, Tahoma, sans-serif ;
   font-size: 8px;
   line-height:3px;
@@ -9,7 +9,7 @@ body{
 }
 header{
 background:#1f618d;
-color:#fff ;
+color:#95e9d8 ;
 padding: 20px;;
 text-align:center ;
 
@@ -50,13 +50,13 @@ h1{
 }
 .recipe-item h2{
     margin:0 ;
-    font size: 20px; ;
+    font-size: 20px; ;
     padding: 10px;
     min-width: 200px;
 }
 
 .recipe-item p{
-    margin: ;
+    margin: 0;
     padding: 10;
     color:#777 ;
 }
