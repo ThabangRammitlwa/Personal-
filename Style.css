@@ -1,111 +1,54 @@
-body{
-  background:#f2f9c2;
-  color:#130d42 ;
-  font-family:Verdana, Geneva, Tahoma, sans-serif ;
-  font-size: 8px;
-  line-height:3px;
-  margin: 0;
-  padding:0 ;  
-}
-header{
-background:#1f618d;
-color:#95e9d8 ;
-padding: 20px;;
-text-align:center ;
-
-}
-h1{
-  margin: 0;
-  font-size: 36px;  
-}
-
-.container{
-
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 20px;
-}
-
-.recipe-list{
-    list-style: none;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-
+    background-color: #f4f4f4;
 }
-.recipe-item{
-    display: flex;
-    align-items: center;
-    justify-content:space-between ;
+
+#recipe-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.recipe-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    box-shadow:0 2px 5px;
-    border-radius: 5px;
     overflow: hidden;
 }
 
-.recipe-item img{
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-
-}
-.recipe-item h2{
-    margin:0 ;
-    font-size: 20px; ;
-    padding: 10px;
-    min-width: 200px;
-}
-
-.recipe-item p{
-    margin: 0;
-    padding: 10;
-    color:#777 ;
-}
-
-.recipe-item a{
-    background: #0c2461;
-    color: #fff;
-    min-width:150px ;
-    padding: 10px 20px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
-    transition: background 0.3s ease;
-}
-
-.recipe-item a:hover{
-    background:#1e3799;
-    
-}
-
-@media screen and (max-width:768px) {
-    .container{
-        max-width:90% ;
-    }
-    .recipe-item{
-        flex-direction:column ;
-    }
-
-    
-.recipe-item img{
-
-    width:100% ;
-    height: auto;
-    margin-bottom: 10px;
-}
- 
-.recipe-item h2{
-    font-size: 20px;
-    padding: 0;
-    margin-bottom: 10px;
-}
-
-.recipe-item p{
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.recipe-item a{
+.recipe-item img {
     width: 100%;
-   text-align: center;
+    height: auto;
+    display: flex;
 }
+
+.recipe-item h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 0 20px;
+}
+
+.recipe-item p {
+    padding: 0 20px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.recipe-item a {
+    display: flex;
+    text-align: center;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s;
+}
+
+.recipe-item a:hover {
+    background-color: #45a049;
 }

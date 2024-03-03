@@ -1,37 +1,42 @@
-const API_KEY ="b53f5a6a49e9464591a6b1b9c294cdab";
-const recipeListEl = document.getElementById("recipe-list")
+const API_KEY = "848a7bb3a9a84ff0933a75290e892e50";
+        const recipeListEl = document.getElementById("recipe-list");
 
-function displayRecipes(recipes){
-recipeListEl.innerHTML=""
-recipes.forEach((recipe)=>{
-    const recipeItemE1=document.createElement("li");
-    recipeItemE1.classList.add("recipe-item");
-    recipeImageE1=document.createElement("img");
-    recipeImageE1.src=recipe.image;
-    recipeImageE1.alt= "recipe image";
+        function displayRecipes(recipes){
+            recipeListEl.innerHTML="";
+            recipes.forEach((recipe)=>{
+                const recipeItemEl=document.createElement("li");
+                recipeItemEl.classList.add("recipe-item");
+                const recipeImageEl=document.createElement("img");
+                recipeImageEl.src=recipe.image;
+                recipeImageEl.alt= "recipe image";
 
-    recipeTitleE1=document.createElement("h2")
-    recipeTitleE1.innerText = recipe.title;
+                const recipeTitleEl=document.createElement("h2");
+                recipeTitleEl.innerText = recipe.title;
 
-    recipeItemE1.appendChild(recipeImageE1);
-    recipeItemE1.appendChild(recipeTitleE1);
-    recipeListEl.appendChild(recipeItemE1);
-});
-}
+                const recipeIngredientsEl=document.createElement("p");
+                recipeIngredientsEl.innerHTML=`<strong>Ingredients:</strong> ${recipe.extendedIngredients.map((ingredient)=>ingredient.original).join(", ")}`;
 
-async function getRecipes() {
-    const response = await fetch(`http://api.spoonacular.com/recipes/random?number=10&apikey=${API_KEY}`)
+                const  recipeLinkEl=document.createElement("a");
+                recipeLinkEl.href=recipe.sourceUrl;
+                recipeLinkEl.innerText="View Recipe";
 
-    const data = await response.json()
+                recipeItemEl.appendChild(recipeImageEl);
+                recipeItemEl.appendChild(recipeTitleEl);
+                recipeItemEl.appendChild(recipeIngredientsEl);
+                recipeItemEl.appendChild(recipeLinkEl);
+                recipeListEl.appendChild(recipeItemEl);
+            });
+        }
 
-    return data.recipes
-}
+        async function getRecipes() {
+            const response = await fetch(`https://api.spoonacular.com/recipes/random?number=10&apiKey=${API_KEY}`);
+            const data = await response.json();
+            return data.recipes;
+        }
 
+        async function init(){
+            const recipes = await getRecipes();
+            displayRecipes(recipes);
+        }
 
- async function ini(){
-    const recipes = await getRecipes()
-   displayRecipes(recipes)
-   console.log(recipes)
-}
-
-init()
+        init();
