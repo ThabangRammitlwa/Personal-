@@ -5,7 +5,8 @@ body {
     background-color: #f4f4f4;
 }
 
-#recipe-list {
+
+.recipe-list {
     list-style: none;
     padding: 0;
     margin: 20px auto;
