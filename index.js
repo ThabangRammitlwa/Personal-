@@ -20,11 +20,20 @@ const API_KEY = "848a7bb3a9a84ff0933a75290e892e50";
                 recipeLinkEl.href=recipe.sourceUrl;
                 recipeLinkEl.innerText="View Recipe";
 
+                const saveButton=document.createElement("button");
+                saveButton.innerText="save Recipe";
+                saveButton.addEventListener("click",()=> {
+                    saveRecipe(recipe);
+                });
+                
+
                 recipeItemEl.appendChild(recipeImageEl);
                 recipeItemEl.appendChild(recipeTitleEl);
                 recipeItemEl.appendChild(recipeIngredientsEl);
                 recipeItemEl.appendChild(recipeLinkEl);
                 recipeListEl.appendChild(recipeItemEl);
+
+                return recipeItemEl;
             });
         }
 
@@ -40,3 +49,24 @@ const API_KEY = "848a7bb3a9a84ff0933a75290e892e50";
         }
 
         init();
+
+// Function to save recipe (You can replace this with actual saving logic)
+    function saveRecipe(recipe) {
+     console.log("Recipe saved:", recipe.title);
+}
+
+// Search functionality (You need to implement this)
+    const searchForm = document.getElementById("search-form");
+    searchForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const searchQuery = document.getElementById("search-input").value;
+    const recipes = await searchRecipes(searchQuery);
+    displayRecipes(recipes);
+});
+
+// Function to search recipes (You need to implement this)
+    async function searchRecipes(query) {
+    const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=10&apiKey=${API_KEY}`);
+    const data = await response.json();
+    return data.results;
+}
